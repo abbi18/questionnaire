@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { add, subtract } from '../actions/mathActions';
-import { setName, setAge } from '../actions/userActions';
-import { getName, getAge } from '../selectors/userSelectors';
-import { getValue } from '../selectors/mathSelectors';
+import { add, subtract } from '../../actions/mathActions';
+import { setName, setAge } from '../../actions/userActions';
+import { getName, getAge } from '../../selectors/userSelectors';
+import { getValue } from '../../selectors/mathSelectors';
 
-
-
-class Home extends Component {
+class Welcome extends Component {
     render() {
         return (
             <div>
@@ -55,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './containers/App';
-import Home from './containers/Home';
+import welcome from './containers/welcome/welcome';
 
 export default (
     <BrowserRouter>
         <App>
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={welcome} />
             </Switch>
         </App>
     </BrowserRouter>
