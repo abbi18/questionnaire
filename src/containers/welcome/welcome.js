@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Navbar from 'react-bootstrap/Navbar'
+
 import { add, subtract } from '../../actions/mathActions';
 import { setName, setAge } from '../../actions/userActions';
 import { getName, getAge } from '../../selectors/userSelectors';
@@ -8,20 +10,24 @@ import { getValue } from '../../selectors/mathSelectors';
 class Welcome extends Component {
     render() {
         return (
-            <div>
-                <button onClick={this.props.setName}>Set Name</button>
-                <div>{this.props.name}</div>
-                <br />
-                <button onClick={this.props.setAge}>Set Age</button>
-                <div>{this.props.age}</div>
-                <br />
-                <button onClick={this.props.add}>Add value</button>
-                <div>{this.props.value}</div>
-                <br />
-                <button onClick={this.props.subtract}>Subtract value</button>
-                <div>{this.props.value}</div>
-                <br />
-            </div>
+            // <div>
+            //     <button onClick={this.props.setName}>Set Name</button>
+            //     <div>{this.props.name}</div>
+            //     <br />
+            //     <button onClick={this.props.setAge}>Set Age</button>
+            //     <div>{this.props.age}</div>
+            //     <br />
+            //     <button onClick={this.props.add}>Add value</button>
+            //     <div>{this.props.value}</div>
+            //     <br />
+            //     <button onClick={this.props.subtract}>Subtract value</button>
+            //     <div>{this.props.value}</div>
+            //     <br />
+            // </div>
+            <Navbar bg="light" expand="xl">
+                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            </Navbar>
         );
     }
 }
