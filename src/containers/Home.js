@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { add, subtract } from '../actions/mathActions';
 import { setName, setAge } from '../actions/userActions';
+import { getName, getAge } from '../selectors/userSelectors';
+import { getValue } from '../selectors/mathSelectors';
 
 
 
@@ -38,9 +40,9 @@ const makeId = () => {
 
 const mapStateToProps = (state) => {
     return {
-        name: state.user.name,
-        age: state.user.age,
-        value: state.math.value,
+        name: getName(state),
+        age: getAge(state),
+        value: getValue(state),
     }
 }
 
