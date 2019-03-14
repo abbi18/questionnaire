@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import logo from '../../media/logo.svg';
 import { getQuestions } from '../../api/questionList';
 import './Welcome.css';
+import { fetchData } from '../../actions';
 
 class Welcome extends Component {
 
@@ -29,6 +30,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        getQuestionList() {
+            dispatch(fetchData());
+        }
     }
 }
 

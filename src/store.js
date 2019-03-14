@@ -1,9 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import {createLogger} from 'redux-logger';
-import { mathReducer } from './reducers/mathReducers';
-import { userReducer } from './reducers/userReducers';
+import { createLogger } from 'redux-logger';
+import { localReducer, apiReducer } from './reducers';
 
 export const store = createStore(combineReducers({
-    math: mathReducer,
-    user: userReducer,
+    local: localReducer,
+    api: apiReducer
 }), {}, applyMiddleware(createLogger()));

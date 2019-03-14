@@ -1,5 +1,6 @@
 import _ from 'lodash';
-
+import { store } from '../store.js';
+import { populateApiData, fetchData, apiError } from '../actions';
 function addParameterToURL(uri, amount, difficulty, type) {
     let parameters = [];
     if (amount !== undefined) {
@@ -16,7 +17,7 @@ function addParameterToURL(uri, amount, difficulty, type) {
 
 function fetchAPi(amount, difficulty, type) {
     const url = addParameterToURL("https://opentdb.com/api.php", amount, difficulty, type);
-
+    
     return fetch(url)
     .then(response => {
         if(response.ok) {
@@ -66,14 +67,19 @@ export function transformData(array) {
             incorrect_answers: listItem.incorrect_answers
         };
     }
+    itemList = shuffleArray(itemList);
     return itemList;
 }
 
 export async function getQuestions(amount, difficulty, type) {
-    var response = await fetchAPi(amount, difficulty, type);
-    console.log('abnndn', response.results);
-    response = transformData(response.results);
-    response = shuffleArray(response);
-    console.log('abnndn', response);
-    return response;
+
+    try {
+        store.dispatch(fetchData());
+        var response = await fetchAPi(amount, difficulty, type);
+        response = transformData(response.results);
+        store.dispatch(populateApiData(response));
+        console.log('abnndn', response);
+    } catch {
+        store.dispatch(apiError());
+    }
 }
