@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
 import { getQuestions } from 'api/questionList';
+import { Problem } from 'components';
 
 import './Welcome.css';
 
@@ -26,6 +27,14 @@ class Welcome extends Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h2>React Quiz</h2>
                 </div>
+                {/* <Problem
+                    answer={this.state.answer}
+                    answerOptions={this.state.answerOptions}
+                    questionId={this.state.questionId}
+                    question={this.state.question}
+                    questionTotal={10}
+                    onAnswerSelected={this.handleAnswerSelected}
+                /> */}
             </div>
         );
     }

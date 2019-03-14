@@ -34,7 +34,9 @@ function shuffleArray(array) {
     }
 
     for (var i = 0; i < array.length; i++) {
-        array[i].index = i;
+        if (array[i].index) {
+            array[i].index = i;
+        }
     }
 
     return array;
@@ -45,6 +47,9 @@ export function transformData(array) {
     var itemList = new Array(list.length);
     for ( let i = 0; i < list.length; i++) {
         const listItem = list[i];
+        var answerList = _.values(listItem.incorrect_answers);
+        answerList.push(listItem.correct_answer);
+        answerList = shuffleArray(answerList);
         itemList[i] = {
             index: i,
             category: listItem.category,
@@ -52,7 +57,7 @@ export function transformData(array) {
             difficulty: listItem.difficulty,
             question: listItem.question,
             correct_answer: listItem.correct_answer,
-            incorrect_answers: listItem.incorrect_answers
+            options: answerList
         };
     }
     itemList = shuffleArray(itemList);
