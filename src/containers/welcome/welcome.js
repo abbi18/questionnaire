@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import logo from '../../media/logo.svg';
-import { getQuestions } from '../../api/questionList';
+import logo from 'media/logo.svg';
+import { getQuestions } from 'api/questionList';
+import { fetchData } from 'actions';
+
 import './Welcome.css';
-import { fetchData } from '../../actions';
 
 class Welcome extends Component {
 

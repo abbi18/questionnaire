@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { store } from '../store.js';
-import { populateApiData, fetchData, apiError } from '../actions';
+import { populateApiData, fetchData, apiError } from 'actions';
+
 function addParameterToURL(uri, amount, difficulty, type) {
     let parameters = [];
     if (amount !== undefined) {
