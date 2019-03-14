@@ -1,3 +1,3 @@
-import { fetchData, populateApiData, apiError } from './api-actions';
+import { apiFetchBegin, apiFetchSuccess, apiFetchError } from './api-actions';
 
-export {fetchData, populateApiData, apiError};
+export {apiFetchBegin, apiFetchSuccess, apiFetchError};

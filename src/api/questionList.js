@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { store } from '../store.js';
-import { populateApiData, fetchData, apiError } from 'actions';
+import { apiFetchBegin, apiFetchSuccess, apiFetchError } from 'actions';
 
 function addParameterToURL(uri, amount, difficulty, type) {
     let parameters = [];
@@ -14,19 +14,6 @@ function addParameterToURL(uri, amount, difficulty, type) {
         parameters.push('type=' + type);
     }
     return uri + '?' + parameters.join('&');
-}
-
-function fetchAPi(amount, difficulty, type) {
-    const url = addParameterToURL("https://opentdb.com/api.php", amount, difficulty, type);
-    
-    return fetch(url)
-    .then(response => {
-        if(response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Server response wasn\'t OK');
-        }
-    });
 }
 
 function shuffleArray(array) {
@@ -72,15 +59,27 @@ export function transformData(array) {
     return itemList;
 }
 
-export async function getQuestions(amount, difficulty, type) {
+function fetchAPi(amount, difficulty, type) {
+    const url = addParameterToURL("https://opentdb.com/api.php", amount, difficulty, type);
 
+    return fetch(url)
+    .then(response => {
+        if(response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Server response wasn\'t OK');
+        }
+    });
+}
+
+export async function getQuestions(amount, difficulty, type) {
     try {
-        store.dispatch(fetchData());
+        store.dispatch(apiFetchBegin());
         var response = await fetchAPi(amount, difficulty, type);
         response = transformData(response.results);
-        store.dispatch(populateApiData(response));
+        store.dispatch(apiFetchSuccess(response));
         console.log('abnndn', response);
     } catch {
-        store.dispatch(apiError());
+        store.dispatch(apiFetchError());
     }
 }

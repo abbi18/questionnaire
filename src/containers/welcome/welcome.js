@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
 import { getQuestions } from 'api/questionList';
-import { fetchData } from 'actions';
 
 import './Welcome.css';
 
+
 class Welcome extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            currentIndex: 0,
+        };
+    }
 
     componentDidMount() {
         getQuestions(10, "hard", "multiple");
@@ -24,17 +31,12 @@ class Welcome extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-    }
-}
+const mapStateToProps = (state) => ({
+    
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getQuestionList() {
-            dispatch(fetchData());
-        }
-    }
-}
+const mapDispatchToProps = (dispatch) => ({
+
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
