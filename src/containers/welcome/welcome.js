@@ -7,7 +7,7 @@ import './Welcome.css';
 class Welcome extends Component {
 
     componentDidMount() {
-        getQuestions(10, "hard", "boolean");
+        getQuestions(10, "hard", "multiple");
     }
 
     render() {
