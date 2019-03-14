@@ -53,8 +53,6 @@ export function transformData(array) {
         itemList[i] = {
             index: i,
             category: listItem.category,
-            type: listItem.type,
-            difficulty: listItem.difficulty,
             question: listItem.question,
             correct_answer: listItem.correct_answer,
             options: answerList

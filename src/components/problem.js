@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { Question, QuestionCount, AnswerOption } from 'components';
+import '../index.css';
 
 function Problem(props) {
   function renderAnswerOptions(key) {

@@ -1,3 +1,3 @@
 import { apiFetchBegin, apiFetchSuccess, apiFetchError } from './api-actions';
-
-export {apiFetchBegin, apiFetchSuccess, apiFetchError};
+import { increaseIndex } from './local-actions';
+export {apiFetchBegin, apiFetchSuccess, apiFetchError, increaseIndex};
