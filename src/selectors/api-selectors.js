@@ -32,5 +32,6 @@ export const getQuestion = (state) => {
 
 export const getTotalQuestions = (state) => {
     const media = getMedia(state);
+    console.log('abnndn', media);
     return media.length;
 }

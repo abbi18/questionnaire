@@ -1,0 +1,13 @@
+.container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 3px;
+  }
+
+  @media (min-width: 769px) {
+    .container {
+      margin: 2.5rem auto;
+    }
+  }
