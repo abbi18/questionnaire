@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
-import plus from 'media/plus.png';
-import { Question } from 'components';
+import { Question, QuestionStatus } from 'components';
 import { getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
 import { clearAPIState, clearLocalState } from 'actions';
 import './result.css';
@@ -13,12 +12,6 @@ const divStyle = {
     alignItems: 'center',
     justifyContent: 'space-around',
 };
-
-const listStyle = {
-    paddingLeft: 30,
-    display: 'flex',
-    justifyContent: 'start'
-}
 
 class result extends Component {
     render() {
@@ -36,10 +29,16 @@ class result extends Component {
                         Would you like to replay?
                     </Link>
                 </div>
-                <div style={listStyle}>
-                    <img src={plus} className="plus" alt="plus"/>
-                    <span>Congratulations, you completed the challenge!!</span>
-                </div>
+                <QuestionStatus
+                    question={"as;djhflaksjdhglaksjdf checking out"}
+                    answerStatus={true}
+                    answer={'sdfjkhals'}
+                />
+                <QuestionStatus
+                    question={"as;djhflsdfsdfasdfdfaksjdhglaksjdf checking out"}
+                    answerStatus={false}
+                    answer={'aslkdjfhs'}
+                />
             </div>
         );
     }
