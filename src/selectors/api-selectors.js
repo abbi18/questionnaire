@@ -41,3 +41,5 @@ export const getCategory = (state) => {
     }
     return '';
 }
+
+export const getIsLoading = (state) => getApiState(state).isFetching;

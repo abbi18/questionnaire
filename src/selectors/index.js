@@ -2,7 +2,8 @@ import { getAnswer,
     getAnswerOptions,
     getQuestion,
     getTotalQuestions,
-    getCategory
+    getCategory,
+    getIsLoading
 } from './api-selectors';
 
 import {
@@ -25,5 +26,6 @@ export { getAnswer,
     getType,
     getDifficulty,
     getCorrectUserAnswers,
-    getCategory
+    getCategory,
+    getIsLoading
 };

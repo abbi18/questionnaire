@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ClipLoader } from 'react-spinners';
 import logo from 'media/logo.svg';
 import { getQuestions } from 'api/question-list';
 import { Problem } from 'components';
@@ -8,7 +9,8 @@ import { getAnswer,
     getQuestion,
     getTotalQuestions,
     getIndex,
-    getCategory
+    getCategory,
+    getIsLoading
 } from 'selectors';
 import { increaseIndex,
     modifyCorrectAnswerCount
@@ -20,6 +22,7 @@ class main extends Component {
     constructor(props) {
         super(props);
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+        this.renderContent = this.renderContent.bind(this);
     }
 
     componentDidMount() {
@@ -37,13 +40,20 @@ class main extends Component {
         }
       }
 
-    render() {
-        return (
-            <div className="App">
-                <div className="App-header" >
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Questionnaire</h2>
-                </div>
+    renderContent() {
+        if (this.props.isLoading) {
+            return (
+                <div>
+                  <ClipLoader
+                    sizeUnit={"px"}
+                    size={150}
+                    color={'black'}
+                    loading={true}
+                  />
+                </div> 
+              );
+        } else {
+            return (
                 <Problem
                     answer={this.props.answer}
                     answerOptions={this.props.answerOptions}
@@ -53,6 +63,18 @@ class main extends Component {
                     onAnswerSelected={this.handleAnswerSelected}
                     category={this.props.category}
                 />
+            );
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <div className="App-header" >
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Questionnaire</h2>
+                </div>
+                {this.renderContent()}
             </div>
         );
     }
@@ -65,6 +87,7 @@ const mapStateToProps = (state) => ({
     question: getQuestion(state),
     index: getIndex(state),
     category: getCategory(state),
+    isLoading: getIsLoading(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
