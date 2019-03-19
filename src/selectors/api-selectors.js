@@ -33,3 +33,11 @@ export const getTotalQuestions = (state) => {
     const media = getMedia(state);
     return media.length;
 }
+
+export const getCategory = (state) => {
+    const media = getMedia(state);
+    if (getIndex(state) < media.length) {
+        return media[getIndex(state)].category;
+    }
+    return '';
+}

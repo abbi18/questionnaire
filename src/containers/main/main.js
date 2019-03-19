@@ -7,7 +7,8 @@ import { getAnswer,
     getAnswerOptions,
     getQuestion,
     getTotalQuestions,
-    getIndex
+    getIndex,
+    getCategory
 } from 'selectors';
 import { increaseIndex,
     modifyCorrectAnswerCount
@@ -50,6 +51,7 @@ class main extends Component {
                     question={this.props.question}
                     questionTotal={this.props.totalQuestion}
                     onAnswerSelected={this.handleAnswerSelected}
+                    category={this.props.category}
                 />
             </div>
         );
@@ -61,7 +63,8 @@ const mapStateToProps = (state) => ({
     answer: getAnswer(state),
     answerOptions: getAnswerOptions(state),
     question: getQuestion(state),
-    index: getIndex(state)
+    index: getIndex(state),
+    category: getCategory(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

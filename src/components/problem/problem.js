@@ -31,6 +31,7 @@ export function Problem(props) {
     // >
       <div key={props.questionId}>
         <QuestionCount counter={props.questionId+1} total={props.questionTotal} />
+        <div>{props.category}</div>
         <Question content={props.question} />
         <ul className="answerOptions">
           {props.answerOptions.map(renderAnswerOptions)}
@@ -46,7 +47,8 @@ Problem.propTypes = {
   question: PropTypes.string.isRequired,
   questionId: PropTypes.number.isRequired,
   questionTotal: PropTypes.number.isRequired,
-  onAnswerSelected: PropTypes.func.isRequired
+  onAnswerSelected: PropTypes.func.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Problem;
