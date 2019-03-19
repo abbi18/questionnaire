@@ -4,6 +4,7 @@ import './answer-option.css';
 
 export function AnswerOption(props) {
   return (
+    <div>
     <li className="answerOption">
       <input
         type="radio"
@@ -19,6 +20,8 @@ export function AnswerOption(props) {
         {props.answerContent}
       </label>
     </li>
+    <div className="answerOption"/>
+    </div>
   );
 }
 
