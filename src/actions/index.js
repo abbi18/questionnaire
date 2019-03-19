@@ -1,4 +1,12 @@
 import { apiFetchBegin, apiFetchSuccess, apiFetchError } from './api-actions';
-import { increaseIndex, modifyCorrectAnswerCount } from './local-actions';
+import { increaseIndex, modifyCorrectAnswerCount, renderWelcomeNext, renderResultNext } from './local-actions';
 
-export {apiFetchBegin, apiFetchSuccess, apiFetchError, increaseIndex, modifyCorrectAnswerCount};
+export {
+    apiFetchBegin,
+    apiFetchSuccess,
+    apiFetchError,
+    increaseIndex,
+    modifyCorrectAnswerCount,
+    renderWelcomeNext,
+    renderResultNext
+};

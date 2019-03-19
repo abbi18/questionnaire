@@ -9,7 +9,8 @@ import {
     getTotalQsRequested,
     getType,
     getDifficulty,
-    getCorrectUserAnswers
+    getCorrectUserAnswers,
+    getEntryOrExit
 } from './local-selectors';
 
 
@@ -17,6 +18,7 @@ export { getAnswer,
     getAnswerOptions,
     getQuestion,
     getTotalQuestions,
+    getEntryOrExit,
     getIndex,
     getTotalQsRequested,
     getType,

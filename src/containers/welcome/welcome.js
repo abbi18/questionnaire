@@ -1,74 +1,65 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
-import { getQuestions } from 'api/question-list';
-import { Problem } from 'components';
-import { getAnswer,
-    getAnswerOptions,
-    getQuestion,
-    getTotalQuestions,
-    getIndex
-} from 'selectors';
-import { increaseIndex,
-    modifyCorrectAnswerCount
-} from 'actions';
-import './Welcome.css';
+import { Question } from 'components';
+import { getEntryOrExit, getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
+import { renderWelcomeNext, renderResultNext } from 'actions';
+import './welcome.css';
 
-class Welcome extends Component {
+class welcome extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
-    }
-
-    componentDidMount() {
-        getQuestions(10, "easy", "multiple");
-    }
-
-    handleAnswerSelected(event) {
-        if (event.target.value === this.props.answer) {
-            this.props.rightAnswer();
+    renderContent() {
+        if (this.props.entry) {
+            return (
+                <div>
+                    <br/>
+                    <Question content={"You'll be presented with 10 True/False Questions."} />
+                    <br/>
+                    <Question content={"Can you score 100%?"} />
+                    <br/>
+                    <Link to="/" className="btn btn-primary" onClick={this.props.renderResultNext}>
+                        Let's find out
+                    </Link>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <br/>
+                    <Question content={"You scored"} />
+                    <Question content={this.props.correctAnswers + "/" + this.props.totalQs} />
+                    <br/>
+                    <Link to="/" className="btn btn-primary" onClick={this.props.renderWelcomeNext}>
+                        Would you like to replay?
+                    </Link>
+                </div>
+            );
         }
-        if (this.props.index < this.props.totalQuestion-1) {
-            this.props.displayNextQs();
-        }
-      }
+    }
 
     render() {
         return (
             <div className="App">
                 <div className="App-header" >
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Questionnaire</h2>
+                    <h2>Welcome to the Trivia Challenge!!</h2>
                 </div>
-                <Problem
-                    answer={this.props.answer}
-                    answerOptions={this.props.answerOptions}
-                    questionId={this.props.index}
-                    question={this.props.question}
-                    questionTotal={this.props.totalQuestion}
-                    onAnswerSelected={this.handleAnswerSelected}
-                />
+                {this.renderContent()}
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    totalQuestion: getTotalQuestions(state),
-    answer: getAnswer(state),
-    answerOptions: getAnswerOptions(state),
-    question: getQuestion(state),
-    index: getIndex(state)
+    entry: getEntryOrExit(state),
+    correctAnswers: getCorrectUserAnswers(state),
+    totalQs: getTotalQsRequested(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    displayNextQs() {
-        dispatch(increaseIndex());
-    },
-    rightAnswer() {
-        dispatch(modifyCorrectAnswerCount());
-    }
+    renderWelcomeNext: () => dispatch(renderWelcomeNext()),
+    renderResultNext: () => dispatch(renderResultNext())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
+export default connect(mapStateToProps, mapDispatchToProps)(welcome);

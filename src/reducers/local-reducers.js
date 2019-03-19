@@ -2,12 +2,25 @@ export const localReducer = (
     state = {
         index: 0,
         rightAns: 0,
-        totalQs: 10,
+        totalQs: 3,
         type: "multiple",
         difficulty: "hard",
+        entry: 1,
     }, action) => {
     
     switch(action.type) {
+        case "RENDER_WELCOME_NEXT":
+            state = {
+                ...state,
+                entry: 1,
+            }
+            break;
+        case "RENDER_RESULT_NEXT":
+            state = {
+                ...state,
+                entry: 0,
+            }
+            break;
         case "INCREASE_INDEX":
             state = {
                 ...state,
