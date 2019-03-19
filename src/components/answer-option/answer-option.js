@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './answer-option.css';
 
 export function AnswerOption(props) {
   return (

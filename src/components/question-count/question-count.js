@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './question-count.css';
 
 export function QuestionCount(props) {
   return (
