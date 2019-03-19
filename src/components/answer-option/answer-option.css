@@ -7,7 +7,7 @@
     background-color: #eefbfe;
   }
 
-  .radioCustomButton {
+  /* .radioCustomButton {
     position: absolute;
     width: auto;
     opacity: 0;
@@ -49,4 +49,4 @@
     background: #8bc53f url(../../media/icon-check.svg) no-repeat;
     background-size: 27px;
     border-color: #8bc53f;
-  }
+  } */
