@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { CSSTransitionGroup } from 'react-transition-group';
 import { Question, QuestionCount, AnswerOption } from 'components';
 import './problem.css';
 
@@ -20,15 +19,6 @@ export function Problem(props) {
   }
 
   return (
-    // <CSSTransitionGroup
-    //   className="container"
-    //   component="div"
-    //   transitionName="fade"
-    //   transitionEnterTimeout={800}
-    //   transitionLeaveTimeout={500}
-    //   transitionAppear
-    //   transitionAppearTimeout={500}
-    // >
       <div key={props.questionId}>
         <QuestionCount counter={props.questionId+1} total={props.questionTotal} />
         <div>{props.category}</div>
@@ -37,7 +27,6 @@ export function Problem(props) {
           {props.answerOptions.map(renderAnswerOptions)}
         </ul>
       </div>
-    // </CSSTransitionGroup>
   );
 }
 
