@@ -8,10 +8,19 @@ const listStyle = {
     paddingBottom: 10,
     paddingRight: 5,
     display: 'flex',
-    justifyContent: 'start'
+    justifyContent: 'start',
+    alignItems: 'start'
 }
 
 const contentStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'start',
+    alignItems: 'start'
+}
+
+const textStyle = {
+    paddingLeft: 5,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'start',
@@ -31,11 +40,11 @@ export function QuestionStatus(props) {
     return (
         <div style={listStyle}>
             {renderImage()}
-            <div>
-                <span>{props.question}</span>
+            <div style={textStyle}>
+                <span className="truncate">{props.question}</span>
                 <div style={contentStyle}>
                     <div>
-                        <strong>correct answer:</strong>
+                        <strong>correct answer: </strong>
                         <span>{props.answer}</span>
                     </div>
                 </div>

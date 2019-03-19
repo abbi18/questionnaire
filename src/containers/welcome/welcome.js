@@ -18,7 +18,7 @@ class welcome extends Component {
                 </div>
                 <div>
                     <br/>
-                    <Question content={"You'll be presented with 3 True/False Questions."} />
+                    <Question content={"You'll be presented with 10 multiple choice Questions."} />
                     <br/>
                     <Question content={"Can you score 100%?"} />
                     <br/>

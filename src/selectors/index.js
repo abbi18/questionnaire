@@ -4,7 +4,8 @@ import { getAnswer,
     getTotalQuestions,
     getCategory,
     getIsLoading,
-    getAnswerStatusForUser
+    getAnswerStatusForUser,
+    getQuestionAnswerList
 } from './api-selectors';
 
 import {
@@ -29,5 +30,6 @@ export { getAnswer,
     getCorrectUserAnswers,
     getCategory,
     getIsLoading,
-    getAnswerStatusForUser
+    getAnswerStatusForUser,
+    getQuestionAnswerList
 };

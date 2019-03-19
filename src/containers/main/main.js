@@ -27,7 +27,7 @@ class main extends Component {
     }
 
     componentDidMount() {
-        getQuestions(3, "easy", "boolean");
+        getQuestions(10, "easy", "multiple");
     }
 
     handleAnswerSelected(event) {

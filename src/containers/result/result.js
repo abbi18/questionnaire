@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
 import { Question, QuestionStatus } from 'components';
-import { getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
+import { getCorrectUserAnswers, getTotalQsRequested, getQuestionAnswerList } from 'selectors';
 import { clearAPIState, clearLocalState } from 'actions';
 import './result.css';
 
@@ -14,6 +14,18 @@ const divStyle = {
 };
 
 class result extends Component {
+
+    renderQsList(key) {
+        return (
+            <QuestionStatus
+                id={key.id}
+                question={key.question}
+                answerStatus={key.correctly_answered}
+                answer={key.answer}
+            />
+        );
+    }
+
     render() {
         return (
             <div className="App">
@@ -29,16 +41,9 @@ class result extends Component {
                         Would you like to replay?
                     </Link>
                 </div>
-                <QuestionStatus
-                    question={"as;djhflaksjdhglaksjdf checking out"}
-                    answerStatus={true}
-                    answer={'sdfjkhals'}
-                />
-                <QuestionStatus
-                    question={"as;djhflsdfsdfasdfdfaksjdhglaksjdf checking out"}
-                    answerStatus={false}
-                    answer={'aslkdjfhs'}
-                />
+                <ul>
+                    {this.props.qsList.map(this.renderQsList)}
+                </ul>
             </div>
         );
     }
@@ -46,6 +51,7 @@ class result extends Component {
 const mapStateToProps = (state) => ({
     correctAnswers: getCorrectUserAnswers(state),
     totalQs: getTotalQsRequested(state),
+    qsList: getQuestionAnswerList(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

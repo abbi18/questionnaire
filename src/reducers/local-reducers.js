@@ -2,7 +2,7 @@ export const localReducer = (
     state = {
         index: 0,
         rightAns: 0,
-        totalQs: 3,
+        totalQs: 10,
         type: "multiple",
         difficulty: "hard",
         entry: 1,
@@ -15,7 +15,7 @@ export const localReducer = (
                 entry: 1,
                 index: 0,
                 rightAns: 0,
-                totalQs: 3,
+                totalQs: 10,
             }
             break;
         case "RENDER_RESULT_NEXT":

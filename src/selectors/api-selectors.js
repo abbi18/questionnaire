@@ -29,6 +29,20 @@ export const getQuestion = (state) => {
     return '';
 }
 
+export const getQuestionAnswerList = (state) => {
+    const media = getMedia(state);
+    const list = [];
+    for (var i = 0; i < media.length; i++) {
+        list.push({
+            id: i,
+            question: media[i].question,
+            answer: media[i].correct_answer,
+            correctly_answered: media[i].correctly_answered,
+        })
+    }
+    return list;
+}
+
 export const getTotalQuestions = (state) => {
     const media = getMedia(state);
     return media.length;
