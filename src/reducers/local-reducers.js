@@ -15,11 +15,9 @@ export const localReducer = (
             }
             break;
         case "CORRECT_ANSWER_COUNT":
-            if (action.payload.correct) {
-                state = {
-                    ...state,
-                    rightAns: state.rightAns + 1
-                }
+            state = {
+                ...state,
+                rightAns: state.rightAns + 1
             }
             break;
         default:

@@ -16,7 +16,6 @@ export const getAnswer = (state) => {
 export const getAnswerOptions = (state) => {
     const media = getMedia(state);
     if (getIndex(state) < media.length) {
-
         return media[getIndex(state)].options;
     }
     return [];
@@ -32,6 +31,5 @@ export const getQuestion = (state) => {
 
 export const getTotalQuestions = (state) => {
     const media = getMedia(state);
-    console.log('abnndn', media);
     return media.length;
 }

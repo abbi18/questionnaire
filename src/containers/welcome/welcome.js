@@ -9,6 +9,7 @@ import { getAnswer,
     getTotalQuestions,
     getIndex
 } from 'selectors';
+import { increaseIndex, modifyCorrectAnswerCount } from 'actions';
 import './Welcome.css';
 
 class Welcome extends Component {
@@ -31,6 +32,12 @@ class Welcome extends Component {
         // } else {
         //   setTimeout(() => this.setResults(this.getResults()), 300);
         // }
+        if (event.target.value === this.props.answer) {
+            this.props.rightAnswer();
+        }
+        if (this.props.index < this.props.totalQuestion-1) {
+            this.props.displayNextQs();
+        }
       }
 
     render() {
@@ -38,7 +45,7 @@ class Welcome extends Component {
             <div className="App">
                 <div className="App-header" >
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>React Quiz</h2>
+                    <h2>Questionnaire</h2>
                 </div>
                 <Problem
                     answer={this.props.answer}
@@ -62,7 +69,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+    displayNextQs() {
+        dispatch(increaseIndex());
+    },
+    rightAnswer() {
+        dispatch(modifyCorrectAnswerCount());
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

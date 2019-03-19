@@ -44,21 +44,28 @@ function shuffleArray(array) {
 
 export function transformData(array) {
     var list = _.values(array);
-    var itemList = new Array(list.length);
+    var itemList = [];
     for ( let i = 0; i < list.length; i++) {
         const listItem = list[i];
         var answerList = _.values(listItem.incorrect_answers);
         answerList.push(listItem.correct_answer);
         answerList = shuffleArray(answerList);
-        itemList[i] = {
+        var options = [];
+        for (var j = 0;j < answerList.length; j++) {
+            options.push({
+                answer: answerList[j],
+                id: j
+            });
+        };
+        itemList.push({
             index: i,
             category: listItem.category,
             question: listItem.question,
             correct_answer: listItem.correct_answer,
-            options: answerList
-        };
+            options: options
+        });
     }
-    itemList = shuffleArray(itemList);
+    // itemList = shuffleArray(itemList);
     return itemList;
 }
 
@@ -81,7 +88,6 @@ export async function getQuestions(amount, difficulty, type) {
         var response = await fetchAPi(amount, difficulty, type);
         response = transformData(response.results);
         store.dispatch(apiFetchSuccess(response));
-        console.log('abnndn', response);
     } catch {
         store.dispatch(apiFetchError());
     }
