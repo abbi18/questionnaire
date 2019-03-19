@@ -59,6 +59,7 @@ export function transformData(array) {
         };
         itemList.push({
             index: i,
+            correctly_answered: false,
             category: listItem.category,
             question: listItem.question,
             correct_answer: listItem.correct_answer,

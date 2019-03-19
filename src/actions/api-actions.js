@@ -14,3 +14,8 @@ export const apiFetchError = () => ({
 export const clearAPIState = () => ({
     type: "CLEAR_API_STATE"
 });
+
+export const correctlyAnswered = (index) => ({
+    type: "CORRECTLY_ANSWERED",
+    payload: index
+})

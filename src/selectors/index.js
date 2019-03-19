@@ -3,7 +3,8 @@ import { getAnswer,
     getQuestion,
     getTotalQuestions,
     getCategory,
-    getIsLoading
+    getIsLoading,
+    getAnswerStatusForUser
 } from './api-selectors';
 
 import {
@@ -27,5 +28,6 @@ export { getAnswer,
     getDifficulty,
     getCorrectUserAnswers,
     getCategory,
-    getIsLoading
+    getIsLoading,
+    getAnswerStatusForUser
 };

@@ -43,3 +43,11 @@ export const getCategory = (state) => {
 }
 
 export const getIsLoading = (state) => getApiState(state).isFetching;
+
+export const getAnswerStatusForUser = (state) => {
+    const media = getMedia(state);
+    if (getIndex(state) < media.length) {
+        return media[getIndex(state)].correctly_answered;
+    }
+    return false;
+}

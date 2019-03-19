@@ -13,7 +13,8 @@ import { getAnswer,
     getIsLoading
 } from 'selectors';
 import { increaseIndex,
-    modifyCorrectAnswerCount
+    modifyCorrectAnswerCount,
+    correctlyAnswered
 } from 'actions';
 import './main.css';
 
@@ -31,7 +32,7 @@ class main extends Component {
 
     handleAnswerSelected(event) {
         if (event.target.value === this.props.answer) {
-            this.props.rightAnswer();
+            this.props.rightAnswer(this.props.index);
         }
         if (this.props.index < this.props.totalQuestion-1) {
             this.props.displayNextQs();
@@ -94,8 +95,9 @@ const mapDispatchToProps = (dispatch) => ({
     displayNextQs() {
         dispatch(increaseIndex());
     },
-    rightAnswer() {
+    rightAnswer(index) {
         dispatch(modifyCorrectAnswerCount());
+        dispatch(correctlyAnswered(index));
     }
 });
 

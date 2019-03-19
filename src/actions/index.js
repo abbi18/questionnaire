@@ -1,4 +1,4 @@
-import { apiFetchBegin, apiFetchSuccess, apiFetchError, clearAPIState } from './api-actions';
+import { apiFetchBegin, apiFetchSuccess, apiFetchError, clearAPIState, correctlyAnswered } from './api-actions';
 import { increaseIndex, modifyCorrectAnswerCount, renderResultNext, clearLocalState } from './local-actions';
 
 export {
@@ -9,5 +9,6 @@ export {
     modifyCorrectAnswerCount,
     renderResultNext,
     clearAPIState,
-    clearLocalState
+    clearLocalState,
+    correctlyAnswered
 };
