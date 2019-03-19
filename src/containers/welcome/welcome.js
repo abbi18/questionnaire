@@ -9,7 +9,9 @@ import { getAnswer,
     getTotalQuestions,
     getIndex
 } from 'selectors';
-import { increaseIndex, modifyCorrectAnswerCount } from 'actions';
+import { increaseIndex,
+    modifyCorrectAnswerCount
+} from 'actions';
 import './Welcome.css';
 
 class Welcome extends Component {
@@ -20,18 +22,10 @@ class Welcome extends Component {
     }
 
     componentDidMount() {
-        getQuestions(10, "hard", "multiple");
+        getQuestions(10, "easy", "multiple");
     }
 
     handleAnswerSelected(event) {
-        // this.setUserAnswer(event.currentTarget.value);
-        // call action to set answer count
-
-        // if (this.props. < quizQuestions.length) {
-        //   setTimeout(() => this.setNextQuestion(), 300);
-        // } else {
-        //   setTimeout(() => this.setResults(this.getResults()), 300);
-        // }
         if (event.target.value === this.props.answer) {
             this.props.rightAnswer();
         }
