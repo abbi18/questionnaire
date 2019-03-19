@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
-import { getQuestions } from 'api/questionList';
+import { getQuestions } from 'api/question-list';
 import { Problem } from 'components';
 import { getAnswer,
     getAnswerOptions,

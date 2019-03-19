@@ -65,7 +65,7 @@ export function transformData(array) {
             options: options
         });
     }
-    // itemList = shuffleArray(itemList);
+    itemList = shuffleArray(itemList);
     return itemList;
 }
 
@@ -75,7 +75,8 @@ function fetchAPi(amount, difficulty, type) {
     return fetch(url)
     .then(response => {
         if(response.ok) {
-            return response.json();
+            var value = response.json();
+            return value;
         } else {
             throw new Error('Server response wasn\'t OK');
         }
