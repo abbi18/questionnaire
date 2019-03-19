@@ -39,12 +39,20 @@ class welcome extends Component {
         }
     }
 
+    renderHeader() {
+        if (this.props.entry) {
+            return <h2>Welcome to the Trivia Challenge!!</h2>;
+        } else {
+            return <h2>Congratulations, you completed the challenge!!</h2>;
+        }
+    }
+
     render() {
         return (
             <div className="App">
                 <div className="App-header" >
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to the Trivia Challenge!!</h2>
+                    {this.renderHeader()}
                 </div>
                 {this.renderContent()}
             </div>
