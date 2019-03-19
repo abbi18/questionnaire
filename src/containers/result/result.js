@@ -7,6 +7,13 @@ import { getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
 import { clearAPIState, clearLocalState } from 'actions';
 import './result.css';
 
+const divStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    backgoundColor: 'red'
+  };
+
 class result extends Component {
     render() {
         return (
@@ -15,7 +22,7 @@ class result extends Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h2>Congratulations, you completed the challenge!!</h2>
                 </div>
-                <div>
+                <div style={divStyle}>
                     <br/>
                     <Question content={"You scored " + this.props.correctAnswers + "/" + this.props.totalQs} />
                     <br/>
