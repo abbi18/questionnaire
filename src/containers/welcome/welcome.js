@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
 import { Question } from 'components';
 import { getEntryOrExit, getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
-import { renderWelcomeNext, renderResultNext } from 'actions';
+import { renderResultNext } from 'actions';
 import './welcome.css';
+import { clearAPIState, clearLocalState } from '../../actions';
 
 class welcome extends Component {
 
@@ -14,11 +15,11 @@ class welcome extends Component {
             return (
                 <div>
                     <br/>
-                    <Question content={"You'll be presented with 10 True/False Questions."} />
+                    <Question content={"You'll be presented with 3 True/False Questions."} />
                     <br/>
                     <Question content={"Can you score 100%?"} />
                     <br/>
-                    <Link to="/" className="btn btn-primary" onClick={this.props.renderResultNext}>
+                    <Link to="/main" className="btn btn-primary" onClick={this.props.renderResultNext}>
                         Let's find out
                     </Link>
                 </div>
@@ -30,7 +31,7 @@ class welcome extends Component {
                     <Question content={"You scored"} />
                     <Question content={this.props.correctAnswers + "/" + this.props.totalQs} />
                     <br/>
-                    <Link to="/" className="btn btn-primary" onClick={this.props.renderWelcomeNext}>
+                    <Link to="/" className="btn btn-primary" onClick={this.props.clearState}>
                         Would you like to replay?
                     </Link>
                 </div>
@@ -58,7 +59,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    renderWelcomeNext: () => dispatch(renderWelcomeNext()),
+    clearState: () => {
+        dispatch(clearAPIState());
+        dispatch(clearLocalState());
+    },
     renderResultNext: () => dispatch(renderResultNext())
 });
 

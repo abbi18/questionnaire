@@ -7,8 +7,8 @@ export const modifyCorrectAnswerCount = (correct) => ({
     payload: correct
 });
 
-export const renderWelcomeNext = () => ({
-    type: "RENDER_WELCOME_NEXT"
+export const clearLocalState = () => ({
+    type: "CLEAR_LOCAL_STATE"
 });
 
 export const renderResultNext = () => ({

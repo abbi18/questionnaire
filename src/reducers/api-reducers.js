@@ -6,6 +6,13 @@ export const apiReducer = (
     }, action) => {
     
     switch(action.type) {
+        case "CLEAR_API_STATE":
+            state = {
+                media: [],
+                isFetching: false,
+                error: true,
+            }
+        break; 
         case "FETCH":
             state = {
                 ...state,

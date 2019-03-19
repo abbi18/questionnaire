@@ -31,6 +31,8 @@ class main extends Component {
         }
         if (this.props.index < this.props.totalQuestion-1) {
             this.props.displayNextQs();
+        } else {
+            this.props.history.push('/');
         }
       }
 

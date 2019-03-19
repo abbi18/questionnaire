@@ -9,4 +9,8 @@ export const apiFetchSuccess = (response) => ({
 
 export const apiFetchError = () => ({
     type: "ERROR"
-})
+});
+
+export const clearAPIState = () => ({
+    type: "CLEAR_API_STATE"
+});

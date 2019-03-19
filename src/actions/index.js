@@ -1,5 +1,5 @@
-import { apiFetchBegin, apiFetchSuccess, apiFetchError } from './api-actions';
-import { increaseIndex, modifyCorrectAnswerCount, renderWelcomeNext, renderResultNext } from './local-actions';
+import { apiFetchBegin, apiFetchSuccess, apiFetchError, clearAPIState } from './api-actions';
+import { increaseIndex, modifyCorrectAnswerCount, renderResultNext, clearLocalState } from './local-actions';
 
 export {
     apiFetchBegin,
@@ -7,6 +7,7 @@ export {
     apiFetchError,
     increaseIndex,
     modifyCorrectAnswerCount,
-    renderWelcomeNext,
-    renderResultNext
+    renderResultNext,
+    clearAPIState,
+    clearLocalState
 };

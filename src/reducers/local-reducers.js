@@ -9,10 +9,13 @@ export const localReducer = (
     }, action) => {
     
     switch(action.type) {
-        case "RENDER_WELCOME_NEXT":
+        case "CLEAR_LOCAL_STATE":
             state = {
                 ...state,
                 entry: 1,
+                index: 0,
+                rightAns: 0,
+                totalQs: 3,
             }
             break;
         case "RENDER_RESULT_NEXT":
