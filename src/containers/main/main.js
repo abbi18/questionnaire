@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
-import logo from 'media/logo.svg';
 import { getQuestions } from 'api/question-list';
 import { Problem, Header } from 'components';
 import { getAnswer,

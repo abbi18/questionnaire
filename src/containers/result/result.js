@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import logo from 'media/logo.svg';
 import { Question, QuestionStatus, Header } from 'components';
 import { getCorrectUserAnswers, getTotalQsRequested, getQuestionAnswerList } from 'selectors';
 import { clearAPIState, clearLocalState } from 'actions';
