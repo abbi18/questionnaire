@@ -2,14 +2,34 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
-import { Question } from 'components';
+import { Choice } from 'components';
 import { getEntryOrExit, getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
 import './welcome.css';
 
-const textStyle = {
+const divStyle = {
     display: 'flex',
-    justifyContent: 'start',
-    alignItems: 'start'
+    alignItems: 'center',
+    justifyContent: 'space-around',
+};
+
+const difficultyOption = [{id: 0, type: "easy"},
+                          {id: 1, type: "medium"},
+                          {id: 2, type: "hard"},
+                          {id: 3, type: "whatever"}];
+
+const qsTypeOption = [{id: 0, type: "binary"},
+                          {id: 1, type: "multiple"},
+                          {id: 2, type: "whatever"}];
+
+const quizSizeOption = [{id: 0, type: "5"},
+                          {id: 1, type: "10"},
+                          {id: 2, type: "20"},
+                          {id: 3, type: "whatever"}];
+
+function handledifficultyOptionSelected(event) {
+    if (event) {
+        console.log(event);
+    }
 }
 
 class welcome extends Component {
@@ -21,13 +41,30 @@ class welcome extends Component {
                     <h2>Welcome to the Trivia Challenge!!</h2>
                 </div>
                 <div>
-                    <Question content={"Difficulty:"} textStyle={textStyle}/>
+                    <Choice 
+                        header={"Difficulty:"}
+                        choiceOptions={difficultyOption}
+                        onChoiceSelected={handledifficultyOptionSelected}
+                    />
+                    <Choice 
+                        header={"Question Type:"}
+                        choiceOptions={qsTypeOption}
+                        onChoiceSelected={handledifficultyOptionSelected}
+                    />
+                    <Choice 
+                        header={"Exected Quiz Size:"}
+                        choiceOptions={quizSizeOption}
+                        onChoiceSelected={handledifficultyOptionSelected}
+                    />
                     <br/>
-                    <Question content={"Can you score 100%?"} />
-                    <br/>
-                    <Link to="/main" className="btn btn-primary">
-                        Let's find out
-                    </Link>
+                    <div style={divStyle}>
+                        <Link to="/main" className="btn btn-secondary" onClick={this.props.clearState}>
+                            Skip This
+                        </Link>
+                        <Link to="/main" className="btn btn-primary" onClick={this.props.clearState}>
+                            Let's Start
+                        </Link>
+                    </div>
                 </div>
             </div>
         );
