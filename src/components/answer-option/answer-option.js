@@ -13,11 +13,13 @@ export function AnswerOption(props) {
         checked={props.answerContent === props.answer}
         id={props.answerContent}
         value={props.answerContent}
-        disabled={props.answer}
         onChange={props.onAnswerSelected}
       />
       <label className="radioCustomLabel" htmlFor={props.answerContent}>
-        {props.answerContent}
+        {props.answerContent.replace(/&quot;/g,'"')
+                            .replace(/&#039;/g,"'")
+                            .replace(/&ocirc;/g, "ô")
+                            .replace(/&amp;/g,' & ')}
       </label>
     </li>
     <div className="answerOption"/>

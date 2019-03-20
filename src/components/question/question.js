@@ -6,7 +6,8 @@ export function Question(props) {
   return <h2 className="question">
     {props.content.replace(/&quot;/g,'"')
                   .replace(/&#039;/g,"'")
-                  .replace(/&ocirc;/g, "ô")}
+                  .replace(/&ocirc;/g, "ô")
+                  .replace(/&amp;/g,' & ')}
   </h2>;
 }
 

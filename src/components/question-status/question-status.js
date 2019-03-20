@@ -41,11 +41,21 @@ export function QuestionStatus(props) {
         <div style={listStyle}>
             {renderImage()}
             <div style={textStyle}>
-                <span className="truncate">{props.question}</span>
+                <span className="truncate">
+                    {props.question.replace(/&quot;/g,'"')
+                                   .replace(/&#039;/g,"'")
+                                   .replace(/&ocirc;/g, "ô")
+                                   .replace(/&amp;/g,' & ')}
+                </span>
                 <div style={contentStyle}>
                     <div>
                         <strong>correct answer: </strong>
-                        <span>{props.answer}</span>
+                        <span>
+                            {props.answer.replace(/&quot;/g,'"')
+                                         .replace(/&#039;/g,"'")
+                                         .replace(/&ocirc;/g, "ô")
+                                         .replace(/&amp;/g,' & ')}
+                        </span>
                     </div>
                 </div>
             </div>

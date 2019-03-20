@@ -18,7 +18,7 @@ class result extends Component {
     renderQsList(key) {
         return (
             <QuestionStatus
-                id={key.id}
+                key={key.id}
                 question={key.question}
                 answerStatus={key.correctly_answered}
                 answer={key.answer}
