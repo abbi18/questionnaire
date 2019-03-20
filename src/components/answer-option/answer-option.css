@@ -8,9 +8,9 @@
 }
 
 .radioCustomButton {
-position: absolute;
-width: auto;
-opacity: 0;
+  position: absolute;
+  width: auto;
+  opacity: 0;
 }
 
 .radioCustomButton,

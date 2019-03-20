@@ -28,9 +28,6 @@ export function AnswerOption(props) {
 }
 
 AnswerOption.propTypes = {
-  answerId: PropTypes.number.isRequired,
-  questionId: PropTypes.number.isRequired,
   answerContent: PropTypes.string.isRequired,
-  answer: PropTypes.string.isRequired,
   onAnswerSelected: PropTypes.func.isRequired
 };

@@ -39,7 +39,7 @@ class main extends Component {
         } else {
             this.props.history.push('/result');
         }
-      }
+    }
 
     renderContent() {
         if (this.props.isLoading) {

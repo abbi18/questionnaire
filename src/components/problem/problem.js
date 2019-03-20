@@ -10,9 +10,6 @@ export function Problem(props) {
       <AnswerOption
         key={key.id}
         answerContent={key.answer}
-        answerId={key.id}
-        answer={''}
-        questionId={props.questionId}
         onAnswerSelected={props.onAnswerSelected}
       />
     );
