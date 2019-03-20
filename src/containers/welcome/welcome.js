@@ -6,9 +6,13 @@ import { Question } from 'components';
 import { getEntryOrExit, getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
 import './welcome.css';
 
+const textStyle = {
+    display: 'flex',
+    justifyContent: 'start',
+    alignItems: 'start'
+}
 
 class welcome extends Component {
-
     render() {
         return (
             <div className="App">
@@ -17,8 +21,7 @@ class welcome extends Component {
                     <h2>Welcome to the Trivia Challenge!!</h2>
                 </div>
                 <div>
-                    <br/>
-                    <Question content={"You'll be presented with 10 multiple choice Questions."} />
+                    <Question content={"Difficulty:"} textStyle={textStyle}/>
                     <br/>
                     <Question content={"Can you score 100%?"} />
                     <br/>

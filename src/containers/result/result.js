@@ -13,6 +13,12 @@ const divStyle = {
     justifyContent: 'space-around',
 };
 
+const textStyle = {
+    display: 'flex',
+    justifyContent: 'start',
+    alignItems: 'start'
+}
+
 class result extends Component {
 
     renderQsList(key) {
@@ -35,7 +41,9 @@ class result extends Component {
                 </div>
                 <div style={divStyle}>
                     <br/>
-                    <Question content={"You scored " + this.props.correctAnswers + " of " + this.props.totalQs} />
+                    <Question
+                        content={"You scored " + this.props.correctAnswers + " of " + this.props.totalQs}
+                        textStyle={textStyle}/>
                     <br/>
                     <Link to="/" className="btn btn-primary" onClick={this.props.clearState}>
                         Would you like to replay?
