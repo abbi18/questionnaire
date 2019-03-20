@@ -11,7 +11,7 @@ export function AnswerOption(props) {
         className="radioCustomButton"
         name="radioGroup"
         checked={props.answerContent === props.answer}
-        id={props.id}
+        id={props.answerContent}
         value={props.answerContent}
         disabled={props.answer}
         onChange={props.onAnswerSelected}
