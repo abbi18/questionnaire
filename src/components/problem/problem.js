@@ -19,14 +19,14 @@ export function Problem(props) {
   }
 
   return (
-      <div key={props.questionId}>
-        <QuestionCount counter={props.questionId+1} total={props.questionTotal} />
-        <div>{props.category}</div>
-        <Question content={props.question} />
-        <ul className="answerOptions">
-          {props.answerOptions.map(renderAnswerOptions)}
-        </ul>
-      </div>
+    <div>
+      <QuestionCount counter={props.questionId+1} total={props.questionTotal} />
+      <div>{props.category}</div>
+      <Question content={props.question} />
+      <ul className="answerOptions">
+        {props.answerOptions.map(renderAnswerOptions)}
+      </ul>
+    </div>
   );
 }
 
