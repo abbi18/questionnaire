@@ -5,23 +5,35 @@ export const localReducer = (
         totalQs: 10,
         type: "boolean",
         difficulty: "hard",
-        entry: 1,
     }, action) => {
     
     switch(action.type) {
+        case "MODIFY_TOTAL_QS":
+            state = {
+                ...state,
+                totalQs: action.payload
+            }
+            break;
+        case "MODIFY_DIFFICULTY":
+            state = {
+                ...state,
+                difficulty: action.payload
+            }
+            break;
+        case "MODIFY_TYPE":
+            state = {
+                ...state,
+                type: action.payload
+            }
+            break;
         case "CLEAR_LOCAL_STATE":
             state = {
                 ...state,
-                entry: 1,
                 index: 0,
                 rightAns: 0,
                 totalQs: 10,
-            }
-            break;
-        case "RENDER_RESULT_NEXT":
-            state = {
-                ...state,
-                entry: 0,
+                type: "boolean",
+                difficulty: "hard",
             }
             break;
         case "INCREASE_INDEX":
