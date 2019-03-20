@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 import logo from 'media/logo.svg';
 import { getQuestions } from 'api/question-list';
-import { Problem } from 'components';
+import { Problem, Header } from 'components';
 import { getAnswer,
     getAnswerOptions,
     getQuestion,
@@ -71,10 +71,7 @@ class main extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header" >
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Questionnaire</h2>
-                </div>
+                <Header content={"Questionnaire"}/>
                 {this.renderContent()}
             </div>
         );

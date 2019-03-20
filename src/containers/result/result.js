@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import logo from 'media/logo.svg';
-import { Question, QuestionStatus } from 'components';
+import { Question, QuestionStatus, Header } from 'components';
 import { getCorrectUserAnswers, getTotalQsRequested, getQuestionAnswerList } from 'selectors';
 import { clearAPIState, clearLocalState } from 'actions';
 import './result.css';
@@ -35,10 +35,7 @@ class result extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header" >
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Congratulations, you completed the challenge!!</h2>
-                </div>
+                <Header content={"Congratulations, you completed the challenge!!"}/>
                 <div style={divStyle}>
                     <br/>
                     <Question

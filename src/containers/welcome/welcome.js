@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import logo from 'media/logo.svg';
-import { Choice } from 'components';
+import { Choice, Header } from 'components';
 import { getEntryOrExit, getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
 import './welcome.css';
 
@@ -36,19 +35,16 @@ class welcome extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header" >
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to the Trivia Challenge!!</h2>
-                </div>
+                <Header content={"Welcome to the Trivia Challenge!!"}/>
                 <div>
-                    <Choice 
-                        header={"Difficulty:"}
-                        choiceOptions={difficultyOption}
-                        onChoiceSelected={handledifficultyOptionSelected}
-                    />
                     <Choice 
                         header={"Question Type:"}
                         choiceOptions={qsTypeOption}
+                        onChoiceSelected={handledifficultyOptionSelected}
+                    />
+                    <Choice 
+                        header={"Difficulty:"}
+                        choiceOptions={difficultyOption}
                         onChoiceSelected={handledifficultyOptionSelected}
                     />
                     <Choice 
