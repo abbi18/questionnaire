@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Choice, Header } from 'components';
-import { getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
+import { getCorrectUserAnswers, getTotalQsRequested, getType, getDifficulty } from 'selectors';
 import './welcome.css';
 
 const divStyle = {
@@ -13,17 +13,15 @@ const divStyle = {
 
 const difficultyOption = [{id: 0, type: "easy"},
                           {id: 1, type: "medium"},
-                          {id: 2, type: "hard"},
-                          {id: 3, type: "whatever"}];
+                          {id: 2, type: "hard"}];
 
-const qsTypeOption = [{id: 0, type: "binary"},
+const qsTypeOption = [{id: 0, type: "boolean"},
                           {id: 1, type: "multiple"},
-                          {id: 2, type: "whatever"}];
+                          {id: 2, type: "mix it up"}];
 
 const quizSizeOption = [{id: 0, type: "5"},
                           {id: 1, type: "10"},
-                          {id: 2, type: "20"},
-                          {id: 3, type: "whatever"}];
+                          {id: 2, type: "20"}];
 
 class welcome extends Component {
 
@@ -54,16 +52,19 @@ class welcome extends Component {
                         header={"Question Type:"}
                         choiceOptions={qsTypeOption}
                         onChoiceSelected={this.handleTypeSelected}
+                        selected={this.props.typeSelected}
                     />
                     <Choice 
                         header={"Difficulty:"}
                         choiceOptions={difficultyOption}
                         onChoiceSelected={this.handleDifficultySelected}
+                        selected={this.props.difficultySelected}
                     />
                     <Choice 
                         header={"Exected Quiz Size:"}
                         choiceOptions={quizSizeOption}
                         onChoiceSelected={this.handleSizeSelected}
+                        selected={this.props.totalQsSelected.toString()}
                     />
                     <br/>
                     <div style={divStyle}>
@@ -82,7 +83,9 @@ class welcome extends Component {
 
 const mapStateToProps = (state) => ({
     correctAnswers: getCorrectUserAnswers(state),
-    totalQs: getTotalQsRequested(state),
+    totalQsSelected: getTotalQsRequested(state),
+    typeSelected: getType(state),
+    difficultySelected: getDifficulty(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
