@@ -72,7 +72,7 @@ export function transformData(array) {
 
 function fetchAPi(amount, difficulty, type) {
     const url = addParameterToURL("https://opentdb.com/api.php", amount, difficulty, type);
-    console.log('abnndn', url);
+    console.log('anupriya gupta', url);
     return fetch(url)
     .then(response => {
         if(response.ok) {
