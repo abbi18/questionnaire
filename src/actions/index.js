@@ -1,5 +1,5 @@
 import { apiFetchBegin, apiFetchSuccess, apiFetchError, clearAPIState, correctlyAnswered } from './api-actions';
-import { increaseIndex, modifyCorrectAnswerCount, clearLocalState, modifytotalQs, modifyDifficulaty, modifyType } from './local-actions';
+import { increaseIndex, modifyCorrectAnswerCount, clearLocalState, modifytotalQs, modifyDifficulty, modifyType } from './local-actions';
 
 export {
     apiFetchBegin,
@@ -11,6 +11,6 @@ export {
     clearLocalState,
     correctlyAnswered,
     modifytotalQs,
-    modifyDifficulaty,
+    modifyDifficulty,
     modifyType
 };

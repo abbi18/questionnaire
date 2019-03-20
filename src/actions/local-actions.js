@@ -11,7 +11,7 @@ export const modifytotalQs = (size) => ({
     payload: size
 });
 
-export const modifyDifficulaty = (diff) => ({
+export const modifyDifficulty = (diff) => ({
     type: "MODIFY_DIFFICULTY",
     payload: diff
 });

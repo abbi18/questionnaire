@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Choice, Header } from 'components';
 import { getCorrectUserAnswers, getTotalQsRequested, getType, getDifficulty } from 'selectors';
+import { modifytotalQs, modifyDifficulty, modifyType} from 'actions';
 import './welcome.css';
 
 const divStyle = {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
 };
 
 const difficultyOption = [{id: 0, type: "easy"},
@@ -25,22 +26,27 @@ const quizSizeOption = [{id: 0, type: "5"},
 
 class welcome extends Component {
 
+    constructor(props) {
+        super(props);
+        this.handleDifficultySelected = this.handleDifficultySelected.bind(this);
+        this.handleTypeSelected = this.handleTypeSelected.bind(this);
+        this.handleSizeSelected = this.handleSizeSelected.bind(this);
+    }
+
     handleDifficultySelected(event) {
-        if (event) {
-            console.log(event);
-        }
+        this.props.difficulty(event.target.value);
     }
 
     handleTypeSelected(event) {
-        if (event) {
-            console.log(event);
+        if (event.target.value === "mix it up") {
+            this.props.qsType(undefined);
+        } else {
+            this.props.qsType(event.target.value);
         }
     }
 
     handleSizeSelected(event) {
-        if (event) {
-            console.log(event);
-        }
+        this.props.totalQs(Number(event.target.value));
     }
 
     render() {
@@ -68,9 +74,6 @@ class welcome extends Component {
                     />
                     <br/>
                     <div style={divStyle}>
-                        <Link to="/main" className="btn btn-secondary" onClick={this.props.clearState}>
-                            Skip This
-                        </Link>
                         <Link to="/main" className="btn btn-primary" onClick={this.props.clearState}>
                             Let's Start
                         </Link>
@@ -89,6 +92,15 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    totalQs(size) {
+        dispatch(modifytotalQs(size));
+    },
+    difficulty(diff) {
+        dispatch(modifyDifficulty(diff));
+    },
+    qsType(type) {
+        dispatch(modifyType(type));
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(welcome);
