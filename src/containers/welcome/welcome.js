@@ -10,7 +10,7 @@ const divStyle = {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    marginLeft: '4.5rem'
+    marginLeft: '2.5rem'
 };
 
 const difficultyOption = [{id: 0, type: "easy"},
@@ -68,7 +68,7 @@ class welcome extends Component {
                         selected={this.props.difficultySelected}
                     />
                     <Choice 
-                        header={"Exected Quiz Size:"}
+                        header={"Expected Quiz Size:"}
                         choiceOptions={quizSizeOption}
                         onChoiceSelected={this.handleSizeSelected}
                         selected={this.props.totalQsSelected.toString()}
@@ -76,7 +76,7 @@ class welcome extends Component {
                     <br/>
                     <div style={divStyle}>
                         <Link to="/main" className="btn btn-primary">
-                            Let's Start
+                            Can you score 100%, Let's get started with this. All the Best !!
                         </Link>
                     </div>
                 </div>
