@@ -9,7 +9,10 @@ import { getAnswer,
     getTotalQuestions,
     getIndex,
     getCategory,
-    getIsLoading
+    getIsLoading,
+    getTotalQsRequested,
+    getType,
+    getDifficulty
 } from 'selectors';
 import { increaseIndex,
     modifyCorrectAnswerCount,
@@ -26,7 +29,7 @@ class main extends Component {
     }
 
     componentDidMount() {
-        getQuestions(10, "easy", "multiple");
+        getQuestions(this.props.qsRequested, this.props.difficultyRequested, this.props.typeRequested);
     }
 
     handleAnswerSelected(event) {
@@ -84,7 +87,10 @@ const mapStateToProps = (state) => ({
     question: getQuestion(state),
     index: getIndex(state),
     category: getCategory(state),
-    isLoading: getIsLoading(state)
+    isLoading: getIsLoading(state),
+    qsRequested: getTotalQsRequested(state),
+    typeRequested: getType(state),
+    difficultyRequested: getDifficulty(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

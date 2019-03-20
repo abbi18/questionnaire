@@ -3,7 +3,7 @@ export const localReducer = (
         index: 0,
         rightAns: 0,
         totalQs: 10,
-        type: "multiple",
+        type: "boolean",
         difficulty: "hard",
         entry: 1,
     }, action) => {

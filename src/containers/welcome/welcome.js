@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Choice, Header } from 'components';
-import { getEntryOrExit, getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
+import { getCorrectUserAnswers, getTotalQsRequested } from 'selectors';
 import './welcome.css';
 
 const divStyle = {
@@ -25,13 +25,26 @@ const quizSizeOption = [{id: 0, type: "5"},
                           {id: 2, type: "20"},
                           {id: 3, type: "whatever"}];
 
-function handledifficultyOptionSelected(event) {
-    if (event) {
-        console.log(event);
-    }
-}
-
 class welcome extends Component {
+
+    handleDifficultySelected(event) {
+        if (event) {
+            console.log(event);
+        }
+    }
+
+    handleTypeSelected(event) {
+        if (event) {
+            console.log(event);
+        }
+    }
+
+    handleSizeSelected(event) {
+        if (event) {
+            console.log(event);
+        }
+    }
+
     render() {
         return (
             <div className="App">
@@ -40,17 +53,17 @@ class welcome extends Component {
                     <Choice 
                         header={"Question Type:"}
                         choiceOptions={qsTypeOption}
-                        onChoiceSelected={handledifficultyOptionSelected}
+                        onChoiceSelected={this.handleTypeSelected}
                     />
                     <Choice 
                         header={"Difficulty:"}
                         choiceOptions={difficultyOption}
-                        onChoiceSelected={handledifficultyOptionSelected}
+                        onChoiceSelected={this.handleDifficultySelected}
                     />
                     <Choice 
                         header={"Exected Quiz Size:"}
                         choiceOptions={quizSizeOption}
-                        onChoiceSelected={handledifficultyOptionSelected}
+                        onChoiceSelected={this.handleSizeSelected}
                     />
                     <br/>
                     <div style={divStyle}>
@@ -68,7 +81,6 @@ class welcome extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    entry: getEntryOrExit(state),
     correctAnswers: getCorrectUserAnswers(state),
     totalQs: getTotalQsRequested(state),
 });

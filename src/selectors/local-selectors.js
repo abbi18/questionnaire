@@ -9,5 +9,3 @@ export const getCorrectUserAnswers = (state) => getLocalState(state).rightAns;
 export const getType = (state) => getLocalState(state).type;
 
 export const getDifficulty = (state) => getLocalState(state).difficulty;
-
-export const getEntryOrExit = (state) => getLocalState(state).entry;
