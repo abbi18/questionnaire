@@ -8,8 +8,9 @@ import './welcome.css';
 
 const divStyle = {
     display: 'flex',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    marginLeft: '4.5rem'
 };
 
 const difficultyOption = [{id: 0, type: "easy"},
@@ -74,7 +75,7 @@ class welcome extends Component {
                     />
                     <br/>
                     <div style={divStyle}>
-                        <Link to="/main" className="btn btn-primary" onClick={this.props.clearState}>
+                        <Link to="/main" className="btn btn-primary">
                             Let's Start
                         </Link>
                     </div>

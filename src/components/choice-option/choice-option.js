@@ -12,7 +12,6 @@ export function ChoiceOption(props) {
             type="radio"
             className="cradioCustomButton"
             name="cradioGroup"
-            checked={props.answerContent === props.answer}
             id={props.answerContent}
             value={props.answerContent}
             onChange={props.onChoiceSelected}
